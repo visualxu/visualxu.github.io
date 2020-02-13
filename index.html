@@ -169,6 +169,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-pat甲级1010TMD坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/13/pat%E7%94%B2%E7%BA%A71010TMD%E5%9D%91/">pat甲级1010TMD坑</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/13/pat%E7%94%B2%E7%BA%A71010TMD%E5%9D%91/" class="archive-article-date">
+  	<time datetime="2020-02-13T11:35:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##TMLGB一切皆有可能</p>
+<p>内容：<br>    简介：故事要从博主今天中午睡了个午觉说起，博主醒了浑身乏力只能祭出一道PAT题来找回精神，从此踏上一条不归路。。。<br>    废话不多说，祭题。<br>    <img src="../image/patj1010.png" alt="alt"><br>    先说一下笔者遇到的坑，首先是二分查找。假设N1进制数已知求N2的进制数redix2易知redix2的最小取值为N2所有位上最大值count+1。最大值：（笔者查找了一些博客结合自身理解如有问题请指出）如果N2只有一位有效显然最大值显然没有约束，但如果有两位以上有效那么最大值必然小于等于N1的10进制数NUM1 + 1，为什么呢，因为前提是两位有效，第二位必然大于等于1如果redix2 == NUM1 +1 ，它的10进制数NUM2必然&gt;=NUM1综合上述两种情况得出redix2 = NUM1 + 1 &gt; count + 1? NUM1 + 1 : count + 1;所以这个取值范围可能会很广，暴力测试7过不去。此处重点.<br>    第二个坑：由于笔者是用的double类型所以没有出现其他博客中出现的溢出问题，此处的坑其实是由第一个坑引起的，笔者使用了二分查找但是测试点7还是出现了问题，终于笔者忙乎了一个下午找出了问题所在：redix2的值可能会造成int溢出，因为我们取它的最大可能值为redix2 = NUM1 + 1 &gt; count ? NUM1 + 1 : count;显然在此题中可能会溢出所以我更改为long型存储redix2的最大可能值后测试点7成功通过。<br>    还有一个小坑点就是题目中说了可能不知一个答案且取最小值，明显只有当它为一位数的时候才会出现这种情况，所以我找出redix2的最小之后先测试一下这个最小值是否通过<br>    上图：笔者自己的程序<br>    <img src="../image/pat1010answer.png" alt="alt"><br>    <img src="../image/pat1010.png" alt="alt"><br>##最后说一句这个作者真是个sb(super boy)</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/13/pat%E7%94%B2%E7%BA%A71010TMD%E5%9D%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-dynamic-progromming" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -547,7 +611,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">gun</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">最近用到的函数:atoi(char &#39;*&#39;):alphabetic to integer &lt;br&gt; pow(double a,double b)：a的b次方&lt;br&gt;</div>
   	  	
     	</section>
     
