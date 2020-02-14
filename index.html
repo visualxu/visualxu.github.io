@@ -169,6 +169,70 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-patj1012" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/14/patj1012/">patj1012</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/14/patj1012/" class="archive-article-date">
+  	<time datetime="2020-02-14T10:50:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##PATJ1012<br>   原本是不想为这道题写个博客的，但是。。。笔者为这道题写的程序不太美观，中途题目的意思也没读懂就贸然下手导致笑话层出不穷。<br>   老样子先看题吧<br>   <img src="../image/patj1012.png" alt="alt"><br>   题目大意：<br>   输入：给出N个需要确认排名的学生C语言、数学、和英语的成绩，M个带确认排名的学生。<br>   排名优先级：平均成绩 &gt; C &gt; math &gt; english<br>   输出：依次输出M个学生的最好成绩排名和最好成绩科目，如果最好科目不唯一则按排名优先级来。<br>   笔者当时出现的问题：没看清题目的输出笔者以为输出的第一个数是最好成绩数，其实是最好的成绩排名，导致笔者懵逼了回头重新审题才发现错误。<br>   还有一个问题就是笔者想省事用数组做了个哈希表，后来发现6位数太大了在linux下gcc直接给段错误了，但是笔者此时程序已经写好了，无奈只能推翻从来。笔者用4个数组来存放四种成绩并依次快排。有一点细节就是存放最好成绩时最好按优先级来排，这样省事。<br>    笔者的程序（由于读错题意有几个数据结构懒得改导致有点丑陋）</p>
+<p>   <img src="../image/pat1012answer.png" alt="alt"><br>   不过速度是OK的(由于不知道M个成绩是不是按ID顺序排的所以笔者是傻瓜遍历的)。<br>   <img src="../image/patj1012g.png" alt="alt"><br>##这次作者题目说的太简洁了，包括平均数需要四舍五入什么的都需要自己看例子才知道。最后不忘这个作者真是个sb(super boy).</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/14/patj1012/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-pat甲级1010TMD坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -611,7 +675,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">最近用到的函数:&lt;br&gt;atoi(char &#39;*&#39;):alphabetic to integer &lt;br&gt; pow(double a,double b)：a的b次方&lt;br&gt;</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">最近用到的函数:&lt;br&gt;atoi(char &#39;*&#39;):alphabetic to integer &lt;br&gt; pow(double a,double b)：a的b次方&lt;br&gt;qsort(char &#39;*&#39;,int num,size_t size,int (fun*)(const void *,const void * ));快排</div>
   	  	
     	</section>
     
