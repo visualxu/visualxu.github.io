@@ -169,6 +169,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-patj1013" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/15/patj1013/">patj1013</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/15/patj1013/" class="archive-article-date">
+  	<time datetime="2020-02-15T11:09:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##patj1013<br>    大家好，低头中午，抬头又是晚上了。编程的时间总是那么的短暂。由于本人非科班出生（虽然还在上大学，但是也是半路出家）所以数据结构都是自己实战修炼的，今天这道题上榜也是因为出现了我很少接触的图论。。。笔者现学现卖。。上题<br><img src="../image/patj1013.png" alt="alt"><br>    题目大意：<br>    说的是有N个城市,M条道路,K个需要关注的路。当发生战争时如果敌人占领了某一地那么那座城市既不能出也不能进，为了不影响其他城市间的互通我们需要为此修建几条路。例子：3 2 3<br>    1 2<br>    1 3<br>    1 2 3<br>三座城市1、2互通，1、3互通,如果1被占领了那么我们就必须修一条2到3的路保证2、3不受影响。甲级仔细读题很重要（狗头）</p>
+<pre><code>这次就不说笔者遇到的问题的了，毕竟笔者才发现自己一直用的矩阵其实是图论，哈哈。
+但还是要提一下重点：图论的遍历。
+当某个城市被攻占了，我们就得找到分散的城市集。比如1、2、3能互通4、5、6也能互通但这两个城市集不能互通，那么就有两个城市集只需要修一条路就能将城市集统一满足需求。
+那么如何将城市加入某个城市集呢，首先先将被攻陷的城市单独放入一个城市集中（在笔者的代码中体现为record[concern] = 1）然后将剩下的所有未被遍历过的城市采用深度遍历dfs，城市集出现的依据：一次深度遍历的结束（此时由首城市能到达的城市集都被遍历过了）。结束时我们就对num[i]++，最后输出的为num[i]-1即城市集的和减一（上面的例子有提）。
+下面上笔者的程序</code></pre><p><img src="../image/j1013answer.png" alt="alt"><br>##笔者的程序有点缺陷：应该把函数里出了J的变量设为全局变量，PAT甲级的题目还是很有意思的。。。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/15/patj1013/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-patj1012" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
