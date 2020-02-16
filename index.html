@@ -169,6 +169,69 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-patj1014" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/16/patj1014/">patj1015</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/16/patj1014/" class="archive-article-date">
+  	<time datetime="2020-02-16T13:10:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##PATJ1014<br>    这是一道30分的题，算是个应用题也就是自由发挥那种类型的题。如果是在考场遇到这题的话全靠运气（狗头），其实题不难，就是题目介绍里有坑（甲级模范）<br><img src="../image/patj1014.png" alt="alt"><br>    题目大意：一个银行8：00开业有N个窗口，窗口和等待区之间有一条黄线，黄线内每个窗口可以容纳M个顾客，顾客每次去人最少的那队排队。给我们顾客数和每个顾客的服务时长，要求我们输出特定顾客离开银行的时间（如果顾客未能在17：00前接受服务就输出Sorry）<br>    笔者的卡点也就是上面括号里的那句话（哈哈，甲级的题真要命，我一开始一位是服务完的时间不能超过17：00。。。这个银行真良心）。<br>    笔者采用对列AC，用一个结构体window（包含该队列顾客服务开始、完成的时间、和队列上的总人数）。<br>    一开始先找哪排人最少顾客就去哪排排队（初始时间为0）顾客开始时间为该队上一位的离开时间，离开时间为该队上一位的离开时间+自己的服务时间。<br>    如果所有的对都排满了此时顾客就需要等待完成的人离开了（排队是不需要时间的，只有服务费时），这个时候比较所有队列里第一位顾客的离开时间，最小的那列就是接下来的那位顾客要去的队，这个时候那列从队头第一位出队，黄线后的顾客再从队尾入队同时更新自己的开始时间和离开时间。这样所有顾客的开始离开时间都能获得。<br>    重点！！！打印时比较顾客的开始时间是否超过17：00超过Sorry没超过正常打印。。。<br><img src="../image/patj1014answer.png" alt="alt">速度5ms没毛病</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/16/patj1014/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-patj1013" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
