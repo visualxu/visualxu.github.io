@@ -169,6 +169,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-patj1018" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/19/patj1018/">patj1018</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/19/patj1018/" class="archive-article-date">
+  	<time datetime="2020-02-19T10:44:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##PAT甲级1018</p>
+<pre><code>这道题着实有点坑，不过收获也不少。
+很容易想到用disjktra算法来获取最短子路径，这里稍微解释一下这个算法。
+disjktra算法基于广度优先遍历，从中心点向外一层一层寻找其他地点（每一层的依据为到原地的最短距离），但它优于广度算法就在于它有一个标志位记录了是否展开过此点（遍历此点能到地所有地方），这样就避免了在条路上来回走，保证不回头减少了时间复杂度。它属于贪心算法，每次都拿出距离原点最近且没有被遍历过的点来遍历它、更新此点能到达的点距原点的最小距离，每一步都是最优解，结果必然也是最优解。（如果一个要找的点与距较长的点相连，那么唯有从最短点出发寻找,所有可能才不会被遗漏（最短点最有可能跟新较长点到原点的最短距离））.大家最好去找找相关的视频理解（图解法等）
+但是此题不具备最优子结构（有多个判断条件，当路径一样比拿出来的自行车大小，当前面两个条件一样又要比拿回去的自行车大小）。比如在某点有两条最短路径相同，需要拿出自行车数也相同的点，但如何比较拿回数呢？可能后面的点缺少了此点的拿回数又可以补上去。。。所以需要采用DFS来对每种可能计算一下minneed 和minback（笔者一开始尝试DFS但用的方法很烂没写下去改用上面的方法发现有问题最后借鉴了柳神的DFS才AC，还是太嫩了。。。）
+讲一下这个DFS怎么写：首先我们用disjktra算法的过程中找出每一个点的所有上一个端点（很好判断，只要遇到最短距离相等的就记录在该点下（可以用一个数组记录））。从终点开始递归遍历所有上一层的点添加到栈内每次递归结束后都要出栈一位（如果某条路到不了0就要回到能到达0的分岔口）每次都要判断一下是否找到了0，找到了就要暂时留住那个栈（正好是从终点到0的路线），此时计算这条路的need和back符合条件就存好这条路径。
+坑点一：有一条最短路径上各点有的自行车数为 5 -&gt; 0 -&gt; 10 在这种情况下我们应该拿出5辆拿回5量（后面的地点不能为前面的地点提供车）.</code></pre><p><img src="../image/patj1018.png" alt="alt"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/19/patj1018/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-patj1014" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -806,7 +875,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">最近用到的函数:&lt;br&gt;atoi(char &#39;*&#39;):alphabetic to integer &lt;br&gt; pow(double a,double b)：a的b次方&lt;br&gt;qsort(char &#39;*&#39;,int num,size_t size,int (fun*)(const void *,const void * ));快排</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">最近用到的函数:&lt;br&gt;atoi(char &#39;*&#39;):alphabetic to integer &lt;br&gt; pow(double a,double b)：a的b次方&lt;br&gt;qsort(char &#39;*&#39;,int num,size_t size,int (fun*)(const void *,const void * ));快排&lt;br&gt;double sqrt(double n),n开方&lt;br&gt;</div>
   	  	
     	</section>
     
