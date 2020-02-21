@@ -6,24 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>patj1018 | blindpro的博客</title>
+  <title>patj1022 | blindpro的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##PAT甲级1018 这道题着实有点坑，不过收获也不少。 很容易想到用disjktra算法来获取最短子路径，这里稍微解释一下这个算法。 disjktra算法基于广度优先遍历，从中心点向外一层一层寻找其他地点（每一层的依据为到原地的最短距离），但它优于广度算法就在于它有一个标志位记录了是否展开过此点（遍历此点能到地所有地方），这样就避免了在条路上来回走，保证不回头减少了时间复杂度。它属于贪心算法，">
+  <meta name="description" content="##PATJ1022    题目大意：有一个数字图书系统，记录输入图书的信息（ID,名字，作者（唯一），关键字，出版社，年份）给m个请求要求我们找出符合条件书的ID    题目不难，我来说说自己遇到的麻烦。    1：输出的ID必须为7位，不足要在前补0    2：feges的麻烦，由于我使用的是C,getline用起来有点麻烦,所以我索性用了fgets    fgets（char ,size_t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="patj1018">
-<meta property="og:url" content="http://yoursite.com/2020/02/19/patj1018/index.html">
+<meta property="og:title" content="patj1022">
+<meta property="og:url" content="http://yoursite.com/2020/02/21/patj1022/index.html">
 <meta property="og:site_name" content="blindpro的博客">
-<meta property="og:description" content="##PAT甲级1018 这道题着实有点坑，不过收获也不少。 很容易想到用disjktra算法来获取最短子路径，这里稍微解释一下这个算法。 disjktra算法基于广度优先遍历，从中心点向外一层一层寻找其他地点（每一层的依据为到原地的最短距离），但它优于广度算法就在于它有一个标志位记录了是否展开过此点（遍历此点能到地所有地方），这样就避免了在条路上来回走，保证不回头减少了时间复杂度。它属于贪心算法，">
+<meta property="og:description" content="##PATJ1022    题目大意：有一个数字图书系统，记录输入图书的信息（ID,名字，作者（唯一），关键字，出版社，年份）给m个请求要求我们找出符合条件书的ID    题目不难，我来说说自己遇到的麻烦。    1：输出的ID必须为7位，不足要在前补0    2：feges的麻烦，由于我使用的是C,getline用起来有点麻烦,所以我索性用了fgets    fgets（char ,size_t">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/02/19/image/patj1018.png">
-<meta property="article:published_time" content="2020-02-19T10:44:27.000Z">
-<meta property="article:modified_time" content="2020-02-19T11:52:44.586Z">
+<meta property="og:image" content="http://yoursite.com/2020/02/21/image/patj1022.png">
+<meta property="article:published_time" content="2020-02-21T11:54:08.000Z">
+<meta property="article:modified_time" content="2020-02-21T12:11:18.767Z">
 <meta property="article:author" content="blindpro">
 <meta property="article:tag" content="c&#x2F;c++">
 <meta property="article:tag" content="QT">
 <meta property="article:tag" content="shell...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/02/19/image/patj1018.png">
+<meta name="twitter:image" content="http://yoursite.com/2020/02/21/image/patj1022.png">
   
     <link rel="alternative" href="/atom.xml" title="blindpro的博客" type="application/atom+xml">
   
@@ -171,33 +171,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-patj1018" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-patj1022" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      patj1018
+      patj1022
     </h1>
   
 
         
-        <a href="/2020/02/19/patj1018/" class="archive-article-date">
-  	<time datetime="2020-02-19T10:44:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
+        <a href="/2020/02/21/patj1022/" class="archive-article-date">
+  	<time datetime="2020-02-21T11:54:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##PAT甲级1018</p>
-<pre><code>这道题着实有点坑，不过收获也不少。
-很容易想到用disjktra算法来获取最短子路径，这里稍微解释一下这个算法。
-disjktra算法基于广度优先遍历，从中心点向外一层一层寻找其他地点（每一层的依据为到原地的最短距离），但它优于广度算法就在于它有一个标志位记录了是否展开过此点（遍历此点能到地所有地方），这样就避免了在条路上来回走，保证不回头减少了时间复杂度。它属于贪心算法，每次都拿出距离原点最近且没有被遍历过的点来遍历它、更新此点能到达的点距原点的最小距离，每一步都是最优解，结果必然也是最优解。（如果一个要找的点与距较长的点相连，那么唯有从最短点出发寻找,所有可能才不会被遗漏（最短点最有可能跟新较长点到原点的最短距离））.大家最好去找找相关的视频理解（图解法等）
-但是此题不具备最优子结构（有多个判断条件，当路径一样比拿出来的自行车大小，当前面两个条件一样又要比拿回去的自行车大小）。比如在某点有两条最短路径相同，需要拿出自行车数也相同的点，但如何比较拿回数呢？可能后面的点缺少了此点的拿回数又可以补上去。。。所以需要采用DFS来对每种可能计算一下minneed 和minback（笔者一开始尝试DFS但用的方法很烂没写下去改用上面的方法发现有问题最后借鉴了柳神的DFS才AC，还是太嫩了。。。）
-讲一下这个DFS怎么写：首先我们用disjktra算法的过程中找出每一个点的所有上一个端点（很好判断，只要遇到最短距离相等的就记录在该点下（可以用一个数组记录））。从终点开始递归遍历所有上一层的点添加到栈内每次递归结束后都要出栈一位（如果某条路到不了0就要回到能到达0的分岔口）每次都要判断一下是否找到了0，找到了就要暂时留住那个栈（正好是从终点到0的路线），此时计算这条路的need和back符合条件就存好这条路径。
-坑点一：有一条最短路径上各点有的自行车数为 5 -&gt; 0 -&gt; 10 在这种情况下我们应该拿出5辆拿回5量（后面的地点不能为前面的地点提供车）.</code></pre><p><img src="../image/patj1018.png" alt="alt"></p>
+        <p>##PATJ1022<br>    题目大意：有一个数字图书系统，记录输入图书的信息（ID,名字，作者（唯一），关键字，出版社，年份）给m个请求要求我们找出符合条件书的ID<br>    题目不难，我来说说自己遇到的麻烦。<br>    1：输出的ID必须为7位，不足要在前补0<br>    2：feges的麻烦，由于我使用的是C,getline用起来有点麻烦,所以我索性用了fgets<br>    fgets（char <em>,size_t size,stream</em>）;<br>    特性：fgets按行读取数据（其实就是它对scanf做了一些处理，不以以空格和换行为分隔符）<br>而且它是get   s也就是获得字符串，所以每次fgets它都会强行在读取的字符串后面加上’\0’这就很麻烦了，如果我们要读的字符串有80个字节，但我们的数组也只有80个字节的空间，那么最后一个字节对应的字符就会被它默认用’\0’代替，也就是我们无法完整获得。<br>    所以我一般用的时候会扩大一位，并每次把读入的\n换成\0而且我是用strlen换的<br>    这就会出现问题了，比如这本书正好80字节，读入81的数组应该是正好的。（原本第81位的\n被它默认替换为\0了）但按照我的设定我还会将最后一位替换为\0这个时候无辜的名字的最后一位被我换成了\0（哭泣）所以我后来扩到了82位。。。用getline的小伙伴就不用考虑这个了。。。。最后晒一下我丑陋的代码（自己手写比较函数速度会更快，可能strcmp考虑的更多吧）。<br><img src="../image/patj1022.png" alt="alt"></p>
 
       
 
@@ -277,7 +271,7 @@ disjktra算法基于广度优先遍历，从中心点向外一层一层寻找其
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/19/patj1018/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/21/patj1022/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -291,18 +285,9 @@ disjktra算法基于广度优先遍历，从中心点向外一层一层寻找其
   
 <nav id="article-nav">
   
-    <a href="/2020/02/20/C-STL-vector/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          C++/STL/vector
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/02/16/patj1014/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">patj1015</div>
+    <a href="/2020/02/20/C-STL-vector/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++/STL/vector</div>
       <i class="icon-circle-right"></i>
     </a>
   
