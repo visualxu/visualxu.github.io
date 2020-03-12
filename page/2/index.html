@@ -6,24 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>patj1022 | blindpro的博客</title>
+  <title>blindpro的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##PATJ1022    题目大意：有一个数字图书系统，记录输入图书的信息（ID,名字，作者（唯一），关键字，出版社，年份）给m个请求要求我们找出符合条件书的ID    题目不难，我来说说自己遇到的麻烦。    1：输出的ID必须为7位，不足要在前补0    2：feges的麻烦，由于我使用的是C,getline用起来有点麻烦,所以我索性用了fgets    fgets（char ,size_t">
-<meta property="og:type" content="article">
-<meta property="og:title" content="patj1022">
-<meta property="og:url" content="http://yoursite.com/2020/02/21/patj1022/index.html">
+  <meta name="description" content="立志要****">
+<meta property="og:type" content="website">
+<meta property="og:title" content="blindpro的博客">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="blindpro的博客">
-<meta property="og:description" content="##PATJ1022    题目大意：有一个数字图书系统，记录输入图书的信息（ID,名字，作者（唯一），关键字，出版社，年份）给m个请求要求我们找出符合条件书的ID    题目不难，我来说说自己遇到的麻烦。    1：输出的ID必须为7位，不足要在前补0    2：feges的麻烦，由于我使用的是C,getline用起来有点麻烦,所以我索性用了fgets    fgets（char ,size_t">
+<meta property="og:description" content="立志要****">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/02/21/image/patj1022.png">
-<meta property="article:published_time" content="2020-02-21T11:54:08.000Z">
-<meta property="article:modified_time" content="2020-02-21T12:11:18.767Z">
 <meta property="article:author" content="blindpro">
 <meta property="article:tag" content="c&#x2F;c++">
 <meta property="article:tag" content="QT">
 <meta property="article:tag" content="shell...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/02/21/image/patj1022.png">
   
     <link rel="alternative" href="/atom.xml" title="blindpro的博客" type="application/atom+xml">
   
@@ -171,51 +167,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-patj1022" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-dynamic-progromming" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      patj1022
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/12/dynamic-progromming/">dynamic progromming</a>
     </h1>
   
 
         
-        <a href="/2020/02/21/patj1022/" class="archive-article-date">
-  	<time datetime="2020-02-21T11:54:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
+        <a href="/2020/02/12/dynamic-progromming/" class="archive-article-date">
+  	<time datetime="2020-02-12T13:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##PATJ1022<br>    题目大意：有一个数字图书系统，记录输入图书的信息（ID,名字，作者（唯一），关键字，出版社，年份）给m个请求要求我们找出符合条件书的ID<br>    题目不难，我来说说自己遇到的麻烦。<br>    1：输出的ID必须为7位，不足要在前补0<br>    2：feges的麻烦，由于我使用的是C,getline用起来有点麻烦,所以我索性用了fgets<br>    fgets（char <em>,size_t size,stream</em>）;<br>    特性：fgets按行读取数据（其实就是它对scanf做了一些处理，不以以空格和换行为分隔符）<br>而且它是get   s也就是获得字符串，所以每次fgets它都会强行在读取的字符串后面加上’\0’这就很麻烦了，如果我们要读的字符串有80个字节，但我们的数组也只有80个字节的空间，那么最后一个字节对应的字符就会被它默认用’\0’代替，也就是我们无法完整获得。<br>    所以我一般用的时候会扩大一位，并每次把读入的\n换成\0而且我是用strlen换的<br>    这就会出现问题了，比如这本书正好80字节，读入81的数组应该是正好的。（原本第81位的\n被它默认替换为\0了）但按照我的设定我还会将最后一位替换为\0这个时候无辜的名字的最后一位被我换成了\0（哭泣）所以我后来扩到了82位。。。用getline的小伙伴就不用考虑这个了。。。。最后晒一下我丑陋的代码（自己手写比较函数速度会更快，可能strcmp考虑的更多吧）。<br><img src="../image/patj1022.png" alt="alt"></p>
+        <p>##第一章</p>
+<p>内容:动态规划</p>
+<p>介绍：<br>    一、动态规划的含义：<br>        动态规划类似于数学中的递归数列，每一项都与前一项有固定的联系<br>        如：a[i] = max(a[i-1],0).<br>    其含义为一件事情可以分为许多使用相同方法解决的小问题。上述例子中a[n]值的求解就可以分为n个子问题每个子问题都可以用上述表达式求解。<br>    官方解释：<br>        动态规划(dynamic programming)是运筹学的一个分支，是求解决策过程(decision process)最优化的数学方法。20世纪50年代初美国数学家R.E.Bellman等人在研究多阶段决策过程(multistep decision process)的优化问题时，提出了著名的最优化原理(principle of optimality)，把多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解，创立了解决这类过程优化问题的新方法——动态规划。1957年出版了他的名著《Dynamic Programming》，这是该领域的第一本著作。<br>    二、动态规划四大类<br>        1.线性动规：拦截导弹，合唱队形，挖地雷，建学校，剑客决斗等；<br>    2.区域动规:石子合并， 加分二叉树，统计单词个数，炮兵布阵等;<br>    3.树形动规:贪吃的九头龙，二分查找树，聚会的欢乐，数字三角形等；<br>    4.背包问题:01背包问题，完全背包问题，分组背包问题，二维背包，装箱问题，挤牛奶（同济ACM第1132题）等；<br>    三、动态规划实例</p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>略略略<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -224,84 +203,16 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/12/dynamic-progromming/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/21/patj1022/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/02/22/%E6%95%B0%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E6%A0%88%E5%AE%9E%E7%8E%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          数的中序遍历栈实现
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/02/20/C-STL-vector/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++/STL/vector</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -321,14 +232,153 @@
 
 
 
-  
-  
-  
 
   
-
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/12/hello-world/">Hello World</a>
+    </h1>
   
 
+        
+        <a href="/2020/02/12/hello-world/" class="archive-article-date">
+  	<time datetime="2020-02-12T10:11:11.077Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/12/hello-world/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-my-first-blog-article" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/11/my-first-blog-article/">my first blog article</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/11/my-first-blog-article/" class="archive-article-date">
+  	<time datetime="2020-02-11T07:19:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##第一章</p>
+<p>内容：BFS</p>
+<p>BFS即广度优先遍历，常用于树的层次遍历</p>
+<p>原理：拿到某一层的所有节点后，保存该层所有节点的子节点并删除该层所有节点，此时就拿到了下一层的所有节点。重复操作即可。<br>具体实现：（此处使用队列）<br>先将第一层的root节点入队，遍历root的子节点并依次入队，遍历完成后，将root节点出队，此时队中就存放了第二层的所有节点。再依次遍历队中所有节点，将子节点入队父节点出队.完成后队中就存放了第三层的所有节点。重复上述操作直到队中无数据，BFS遍历完成。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/11/my-first-blog-article/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
 
 
@@ -351,8 +401,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

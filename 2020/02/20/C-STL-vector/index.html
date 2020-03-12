@@ -16,7 +16,7 @@
 <meta property="og:description" content="C++有许多功能强大的容器比如说本章的主角vector。 使用前要包含头文件:*include&lt;vector&gt;##第一章vector的初始化    (1) vector a(10);&#x2F;&#x2F;定义了10个整型元素的向量    (2) vector a(10,1);&#x2F;&#x2F;定义了10个整型元素的向量，且每个初始化为1    (3) vector a(b);&#x2F;&#x2F;用b向量来创建a向量，整体复制">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-20T15:05:50.000Z">
-<meta property="article:modified_time" content="2020-02-20T15:15:49.112Z">
+<meta property="article:modified_time" content="2020-02-22T09:00:31.550Z">
 <meta property="article:author" content="blindpro">
 <meta property="article:tag" content="c&#x2F;c++">
 <meta property="article:tag" content="QT">
@@ -190,8 +190,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <pre><code>C++有许多功能强大的容器比如说本章的主角vector。
-使用前要包含头文件:*include&lt;vector&gt;</code></pre><p>##第一章vector的初始化<br>    (1) vector<int> a(10);//定义了10个整型元素的向量<br>    (2) vector<int> a(10,1);//定义了10个整型元素的向量，且每个初始化为1<br>    (3) vector<int> a(b);//用b向量来创建a向量，整体复制</p>
-
+使用前要包含头文件:*include&lt;vector&gt;</code></pre><p>##第一章vector的初始化<br>    (1) vector<int> a(10);//定义了10个整型元素的向量<br>    (2) vector<int> a(10,1);//定义了10个整型元素的向量，且每个初始化为1<br>    (3) vector<int> a(b);//用b向量来创建a向量，整体复制<br>    (4) vector<int>a(b.begin(),b.end()-1)<br>    (5) 从数组中获得初值<br>##第二章vector对象的重要方法<br>    (1)a.assign(b.begin(),b.end())相当于复制，大小可自己定义<br>    (2)a.insert(a.begin(),1)在向量a的开头插入1<br>    (3)a.push_back(1)在向量a尾插入数据1<br>    (4)a.clear()清空向量a<br>    (5)a.empty()判断a是否为空，空返回true反之返回false<br>    (6)a.size()返会a中元素个数</p>
+<pre><code>对vector 对象排序:头文件包含#include&lt;algorithm&gt;
+bool cmp(const int a,const int b) {
+    return a &gt; b;//降序反之升序
+}
+sort(a.begin(),a.end(),cmp);不加cmp默认升序序
+能用sort就用sort 优于qsort</code></pre>
       
 
       

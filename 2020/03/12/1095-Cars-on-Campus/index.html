@@ -6,24 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>patj1022 | blindpro的博客</title>
+  <title>1095 Cars on Campus | blindpro的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##PATJ1022    题目大意：有一个数字图书系统，记录输入图书的信息（ID,名字，作者（唯一），关键字，出版社，年份）给m个请求要求我们找出符合条件书的ID    题目不难，我来说说自己遇到的麻烦。    1：输出的ID必须为7位，不足要在前补0    2：feges的麻烦，由于我使用的是C,getline用起来有点麻烦,所以我索性用了fgets    fgets（char ,size_t">
+  <meta name="description" content="##简介    此题意为：给定一组停车数据和一些请求（按时间升序，查看某一时间停车总数），并且最后要得出停车最长时间的车的id    此题学于博客园https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wanghao-boke&#x2F;p&#x2F;9570795.html 12345678910111213141516171819202122232425262728293031323334353637383940414">
 <meta property="og:type" content="article">
-<meta property="og:title" content="patj1022">
-<meta property="og:url" content="http://yoursite.com/2020/02/21/patj1022/index.html">
+<meta property="og:title" content="1095 Cars on Campus">
+<meta property="og:url" content="http://yoursite.com/2020/03/12/1095-Cars-on-Campus/index.html">
 <meta property="og:site_name" content="blindpro的博客">
-<meta property="og:description" content="##PATJ1022    题目大意：有一个数字图书系统，记录输入图书的信息（ID,名字，作者（唯一），关键字，出版社，年份）给m个请求要求我们找出符合条件书的ID    题目不难，我来说说自己遇到的麻烦。    1：输出的ID必须为7位，不足要在前补0    2：feges的麻烦，由于我使用的是C,getline用起来有点麻烦,所以我索性用了fgets    fgets（char ,size_t">
+<meta property="og:description" content="##简介    此题意为：给定一组停车数据和一些请求（按时间升序，查看某一时间停车总数），并且最后要得出停车最长时间的车的id    此题学于博客园https:&#x2F;&#x2F;www.cnblogs.com&#x2F;wanghao-boke&#x2F;p&#x2F;9570795.html 12345678910111213141516171819202122232425262728293031323334353637383940414">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2020/02/21/image/patj1022.png">
-<meta property="article:published_time" content="2020-02-21T11:54:08.000Z">
-<meta property="article:modified_time" content="2020-02-21T12:11:18.767Z">
+<meta property="article:published_time" content="2020-03-12T07:51:18.000Z">
+<meta property="article:modified_time" content="2020-03-12T08:45:12.028Z">
 <meta property="article:author" content="blindpro">
 <meta property="article:tag" content="c&#x2F;c++">
 <meta property="article:tag" content="QT">
 <meta property="article:tag" content="shell...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/02/21/image/patj1022.png">
   
     <link rel="alternative" href="/atom.xml" title="blindpro的博客" type="application/atom+xml">
   
@@ -171,27 +169,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-patj1022" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-1095-Cars-on-Campus" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      patj1022
+      1095 Cars on Campus
     </h1>
   
 
         
-        <a href="/2020/02/21/patj1022/" class="archive-article-date">
-  	<time datetime="2020-02-21T11:54:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
+        <a href="/2020/03/12/1095-Cars-on-Campus/" class="archive-article-date">
+  	<time datetime="2020-03-12T07:51:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##PATJ1022<br>    题目大意：有一个数字图书系统，记录输入图书的信息（ID,名字，作者（唯一），关键字，出版社，年份）给m个请求要求我们找出符合条件书的ID<br>    题目不难，我来说说自己遇到的麻烦。<br>    1：输出的ID必须为7位，不足要在前补0<br>    2：feges的麻烦，由于我使用的是C,getline用起来有点麻烦,所以我索性用了fgets<br>    fgets（char <em>,size_t size,stream</em>）;<br>    特性：fgets按行读取数据（其实就是它对scanf做了一些处理，不以以空格和换行为分隔符）<br>而且它是get   s也就是获得字符串，所以每次fgets它都会强行在读取的字符串后面加上’\0’这就很麻烦了，如果我们要读的字符串有80个字节，但我们的数组也只有80个字节的空间，那么最后一个字节对应的字符就会被它默认用’\0’代替，也就是我们无法完整获得。<br>    所以我一般用的时候会扩大一位，并每次把读入的\n换成\0而且我是用strlen换的<br>    这就会出现问题了，比如这本书正好80字节，读入81的数组应该是正好的。（原本第81位的\n被它默认替换为\0了）但按照我的设定我还会将最后一位替换为\0这个时候无辜的名字的最后一位被我换成了\0（哭泣）所以我后来扩到了82位。。。用getline的小伙伴就不用考虑这个了。。。。最后晒一下我丑陋的代码（自己手写比较函数速度会更快，可能strcmp考虑的更多吧）。<br><img src="../image/patj1022.png" alt="alt"></p>
+        <p>##简介<br>    此题意为：给定一组停车数据和一些请求（按时间升序，查看某一时间停车总数），并且最后要得出停车最长时间的车的id<br>    此题学于博客园<a href="https://www.cnblogs.com/wanghao-boke/p/9570795.html" target="_blank" rel="noopener">https://www.cnblogs.com/wanghao-boke/p/9570795.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;map&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef struct &#123;</span><br><span class="line">    char name[8];</span><br><span class="line">    int time;</span><br><span class="line">    int status;&#x2F;&#x2F;0:in,1:out</span><br><span class="line">&#125;car;</span><br><span class="line">bool cmp(car a,car b) &#123;**先按ID排序，ID相同按时间排序**</span><br><span class="line">    int value &#x3D; strcmp(a.name,b.name);</span><br><span class="line">    if (value !&#x3D; 0) &#123;</span><br><span class="line">        return value &lt; 0;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        return a.time &lt; b.time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">bool cmp1(car a,car b) &#123;</span><br><span class="line">    return a.time &lt; b.time;</span><br><span class="line">&#125;</span><br><span class="line">int alu(int hour,int min, int second) &#123;</span><br><span class="line">    return hour*3600 + min*60 + second;</span><br><span class="line">&#125;</span><br><span class="line">map&lt;string,int&gt;timeall;</span><br><span class="line">int main() &#123;</span><br><span class="line">    int n,m,i;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    int hour,min,second;</span><br><span class="line">    char status[4];</span><br><span class="line">    car *park &#x3D; (car*)calloc(n,sizeof(car));</span><br><span class="line">    for (i &#x3D; 0;i &lt; n;i++) &#123;</span><br><span class="line">        memset(status,0,sizeof(status));</span><br><span class="line">        scanf(&quot;%s%d:%d:%d%s&quot;,park[i].name,&amp;hour,&amp;min,&amp;second,status);       </span><br><span class="line">        if (strcmp(status,&quot;in&quot;) &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            park[i].status &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            park[i].status &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        park[i].time &#x3D; alu(hour,min,second);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(park,park+n,cmp);</span><br><span class="line">    int query,j,k;</span><br><span class="line">    int parkingsumtime &#x3D; 0,temp &#x3D; 0,num &#x3D; 0;</span><br><span class="line">    car valid[n];</span><br><span class="line">    for (i &#x3D; 0;i &lt; n;i++) &#123;</span><br><span class="line">        if (park[i].status &#x3D;&#x3D; 0 &amp;&amp; park[i+1].status &#x3D;&#x3D; 1 &amp;&amp; strcmp(park[i].name,park[i+1].name) &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            **此处判断含义：按照题意只有相邻的in和out才算有效值，所以要找相邻的in和out并且ID相同**</span><br><span class="line">	    temp &#x3D; park[i+1].time - park[i].time;</span><br><span class="line">            if (timeall.find(park[i].name) !&#x3D; timeall.end()) &#123;</span><br><span class="line">                timeall[park[i].name] +&#x3D; temp;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                timeall[park[i].name] &#x3D; temp;</span><br><span class="line">            &#125;</span><br><span class="line">            parkingsumtime &#x3D; max(timeall[park[i].name],parkingsumtime);</span><br><span class="line">            valid[num++] &#x3D; park[i];&#x2F;*将所有有效停车记录下*&#x2F;</span><br><span class="line">            valid[num++] &#x3D; park[i+1];</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int now &#x3D; 0,numCar &#x3D; 0; **now 必须放在外面不然会重复循环导致超时**</span><br><span class="line">    sort(valid,valid+num,cmp1);**将有效数据按时间增序排序**</span><br><span class="line">    for( i &#x3D; 0; i &lt; m; i++)&#123;</span><br><span class="line">        scanf(&quot;%d:%d:%d&quot;,&amp;hour,&amp;min,&amp;second);</span><br><span class="line">        int qTime &#x3D; alu(hour,min,second);</span><br><span class="line">        while(now &lt; num &amp;&amp; valid[now].time &lt;&#x3D; qTime)&#123;**此处含义：所有小于qtime的in中有一部分是无效的，这部分为对应的out也小于qtime的，所以记录所有小于qtime的in并且减掉所有小于qtime的out,由于query也是增序的所以上一个while循环的结果可以直接给下个循环使用，无需初始化**</span><br><span class="line">            if(valid[now].status &#x3D;&#x3D; 0) &#123;</span><br><span class="line">                numCar++;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                numCar--;</span><br><span class="line">            &#125;</span><br><span class="line">            now++;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;%d\n&quot;,numCar);</span><br><span class="line">    &#125;</span><br><span class="line">    map&lt;string,int&gt;::iterator iter2 &#x3D; timeall.begin();</span><br><span class="line">    for (;iter2 !&#x3D; timeall.end();iter2++) &#123;</span><br><span class="line">        if (iter2-&gt;second &#x3D;&#x3D; parkingsumtime) &#123;</span><br><span class="line">            cout&lt;&lt;iter2-&gt;first&lt;&lt;&quot; &quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    hour &#x3D; parkingsumtime&#x2F;3600;</span><br><span class="line">    min  &#x3D; (parkingsumtime - hour*3600)&#x2F;60;</span><br><span class="line">    second &#x3D; parkingsumtime - hour*3600 - min*60;</span><br><span class="line">    printf(&quot;%02d:%02d:%02d&quot;,hour,min,second);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -271,7 +270,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/21/patj1022/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/12/1095-Cars-on-Campus/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -285,18 +284,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/02/22/%E6%95%B0%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E6%A0%88%E5%AE%9E%E7%8E%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          数的中序遍历栈实现
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/02/20/C-STL-vector/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">C++/STL/vector</div>
+    <a href="/2020/03/01/C-SET/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++SET</div>
       <i class="icon-circle-right"></i>
     </a>
   

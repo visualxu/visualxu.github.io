@@ -169,6 +169,196 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-1095-Cars-on-Campus" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/12/1095-Cars-on-Campus/">1095 Cars on Campus</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/12/1095-Cars-on-Campus/" class="archive-article-date">
+  	<time datetime="2020-03-12T07:51:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##简介<br>    此题意为：给定一组停车数据和一些请求（按时间升序，查看某一时间停车总数），并且最后要得出停车最长时间的车的id<br>    此题学于博客园<a href="https://www.cnblogs.com/wanghao-boke/p/9570795.html" target="_blank" rel="noopener">https://www.cnblogs.com/wanghao-boke/p/9570795.html</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;map&gt;</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef struct &#123;</span><br><span class="line">    char name[8];</span><br><span class="line">    int time;</span><br><span class="line">    int status;&#x2F;&#x2F;0:in,1:out</span><br><span class="line">&#125;car;</span><br><span class="line">bool cmp(car a,car b) &#123;**先按ID排序，ID相同按时间排序**</span><br><span class="line">    int value &#x3D; strcmp(a.name,b.name);</span><br><span class="line">    if (value !&#x3D; 0) &#123;</span><br><span class="line">        return value &lt; 0;</span><br><span class="line">    &#125;</span><br><span class="line">    else &#123;</span><br><span class="line">        return a.time &lt; b.time;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">bool cmp1(car a,car b) &#123;</span><br><span class="line">    return a.time &lt; b.time;</span><br><span class="line">&#125;</span><br><span class="line">int alu(int hour,int min, int second) &#123;</span><br><span class="line">    return hour*3600 + min*60 + second;</span><br><span class="line">&#125;</span><br><span class="line">map&lt;string,int&gt;timeall;</span><br><span class="line">int main() &#123;</span><br><span class="line">    int n,m,i;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    int hour,min,second;</span><br><span class="line">    char status[4];</span><br><span class="line">    car *park &#x3D; (car*)calloc(n,sizeof(car));</span><br><span class="line">    for (i &#x3D; 0;i &lt; n;i++) &#123;</span><br><span class="line">        memset(status,0,sizeof(status));</span><br><span class="line">        scanf(&quot;%s%d:%d:%d%s&quot;,park[i].name,&amp;hour,&amp;min,&amp;second,status);       </span><br><span class="line">        if (strcmp(status,&quot;in&quot;) &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            park[i].status &#x3D; 0;</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            park[i].status &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        park[i].time &#x3D; alu(hour,min,second);</span><br><span class="line">    &#125;</span><br><span class="line">    sort(park,park+n,cmp);</span><br><span class="line">    int query,j,k;</span><br><span class="line">    int parkingsumtime &#x3D; 0,temp &#x3D; 0,num &#x3D; 0;</span><br><span class="line">    car valid[n];</span><br><span class="line">    for (i &#x3D; 0;i &lt; n;i++) &#123;</span><br><span class="line">        if (park[i].status &#x3D;&#x3D; 0 &amp;&amp; park[i+1].status &#x3D;&#x3D; 1 &amp;&amp; strcmp(park[i].name,park[i+1].name) &#x3D;&#x3D; 0) &#123;</span><br><span class="line">            **此处判断含义：按照题意只有相邻的in和out才算有效值，所以要找相邻的in和out并且ID相同**</span><br><span class="line">	    temp &#x3D; park[i+1].time - park[i].time;</span><br><span class="line">            if (timeall.find(park[i].name) !&#x3D; timeall.end()) &#123;</span><br><span class="line">                timeall[park[i].name] +&#x3D; temp;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                timeall[park[i].name] &#x3D; temp;</span><br><span class="line">            &#125;</span><br><span class="line">            parkingsumtime &#x3D; max(timeall[park[i].name],parkingsumtime);</span><br><span class="line">            valid[num++] &#x3D; park[i];&#x2F;*将所有有效停车记录下*&#x2F;</span><br><span class="line">            valid[num++] &#x3D; park[i+1];</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int now &#x3D; 0,numCar &#x3D; 0; **now 必须放在外面不然会重复循环导致超时**</span><br><span class="line">    sort(valid,valid+num,cmp1);**将有效数据按时间增序排序**</span><br><span class="line">    for( i &#x3D; 0; i &lt; m; i++)&#123;</span><br><span class="line">        scanf(&quot;%d:%d:%d&quot;,&amp;hour,&amp;min,&amp;second);</span><br><span class="line">        int qTime &#x3D; alu(hour,min,second);</span><br><span class="line">        while(now &lt; num &amp;&amp; valid[now].time &lt;&#x3D; qTime)&#123;**此处含义：所有小于qtime的in中有一部分是无效的，这部分为对应的out也小于qtime的，所以记录所有小于qtime的in并且减掉所有小于qtime的out,由于query也是增序的所以上一个while循环的结果可以直接给下个循环使用，无需初始化**</span><br><span class="line">            if(valid[now].status &#x3D;&#x3D; 0) &#123;</span><br><span class="line">                numCar++;</span><br><span class="line">            &#125;</span><br><span class="line">            else &#123;</span><br><span class="line">                numCar--;</span><br><span class="line">            &#125;</span><br><span class="line">            now++;</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;%d\n&quot;,numCar);</span><br><span class="line">    &#125;</span><br><span class="line">    map&lt;string,int&gt;::iterator iter2 &#x3D; timeall.begin();</span><br><span class="line">    for (;iter2 !&#x3D; timeall.end();iter2++) &#123;</span><br><span class="line">        if (iter2-&gt;second &#x3D;&#x3D; parkingsumtime) &#123;</span><br><span class="line">            cout&lt;&lt;iter2-&gt;first&lt;&lt;&quot; &quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    hour &#x3D; parkingsumtime&#x2F;3600;</span><br><span class="line">    min  &#x3D; (parkingsumtime - hour*3600)&#x2F;60;</span><br><span class="line">    second &#x3D; parkingsumtime - hour*3600 - min*60;</span><br><span class="line">    printf(&quot;%02d:%02d:%02d&quot;,hour,min,second);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/12/1095-Cars-on-Campus/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-C-SET" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/01/C-SET/">C++SET</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/01/C-SET/" class="archive-article-date">
+  	<time datetime="2020-03-01T14:37:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##C++SET的使用<br>    简介：set容器底层采用红黑树实现，所以这个容器是用来</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/01/C-SET/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数的中序遍历栈实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/22/%E6%95%B0%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E6%A0%88%E5%AE%9E%E7%8E%B0/">数的中序遍历栈实现</a>
+    </h1>
+  
+
+        
+        <a href="/2020/02/22/%E6%95%B0%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E6%A0%88%E5%AE%9E%E7%8E%B0/" class="archive-article-date">
+  	<time datetime="2020-02-22T11:40:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##第一章树的中序遍历栈实现<br>内容:<br>    以往我们遍历树是使用递归的，实际上递归函数的本质就是栈。而且在数据量过大的时候很容易会出现栈溢出情况导致程序退出，所以有必要掌握非递归树的遍历。<br>    其实三种遍历的路径都是一样的：先往左边走，左边走到头了就回去一层，再往右边走，右边走完了再回去一层。所以我们用栈的时候也是按照它的路线来的。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/02/22/%E6%95%B0%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E6%A0%88%E5%AE%9E%E7%8E%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-patj1022" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -253,8 +443,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <pre><code>C++有许多功能强大的容器比如说本章的主角vector。
-使用前要包含头文件:*include&lt;vector&gt;</code></pre><p>##第一章vector的初始化<br>    (1) vector<int> a(10);//定义了10个整型元素的向量<br>    (2) vector<int> a(10,1);//定义了10个整型元素的向量，且每个初始化为1<br>    (3) vector<int> a(b);//用b向量来创建a向量，整体复制</p>
-
+使用前要包含头文件:*include&lt;vector&gt;</code></pre><p>##第一章vector的初始化<br>    (1) vector<int> a(10);//定义了10个整型元素的向量<br>    (2) vector<int> a(10,1);//定义了10个整型元素的向量，且每个初始化为1<br>    (3) vector<int> a(b);//用b向量来创建a向量，整体复制<br>    (4) vector<int>a(b.begin(),b.end()-1)<br>    (5) 从数组中获得初值<br>##第二章vector对象的重要方法<br>    (1)a.assign(b.begin(),b.end())相当于复制，大小可自己定义<br>    (2)a.insert(a.begin(),1)在向量a的开头插入1<br>    (3)a.push_back(1)在向量a尾插入数据1<br>    (4)a.clear()清空向量a<br>    (5)a.empty()判断a是否为空，空返回true反之返回false<br>    (6)a.size()返会a中元素个数</p>
+<pre><code>对vector 对象排序:头文件包含#include&lt;algorithm&gt;
+bool cmp(const int a,const int b) {
+    return a &gt; b;//降序反之升序
+}
+sort(a.begin(),a.end(),cmp);不加cmp默认升序序
+能用sort就用sort 优于qsort</code></pre>
       
 
       
@@ -624,212 +819,10 @@ disjktra算法基于广度优先遍历，从中心点向外一层一层寻找其
 
 
   
-    <article id="post-dynamic-progromming" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/12/dynamic-progromming/">dynamic progromming</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/12/dynamic-progromming/" class="archive-article-date">
-  	<time datetime="2020-02-12T13:32:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##第一章</p>
-<p>内容:动态规划</p>
-<p>介绍：<br>    一、动态规划的含义：<br>        动态规划类似于数学中的递归数列，每一项都与前一项有固定的联系<br>        如：a[i] = max(a[i-1],0).<br>    其含义为一件事情可以分为许多使用相同方法解决的小问题。上述例子中a[n]值的求解就可以分为n个子问题每个子问题都可以用上述表达式求解。<br>    官方解释：<br>        动态规划(dynamic programming)是运筹学的一个分支，是求解决策过程(decision process)最优化的数学方法。20世纪50年代初美国数学家R.E.Bellman等人在研究多阶段决策过程(multistep decision process)的优化问题时，提出了著名的最优化原理(principle of optimality)，把多阶段过程转化为一系列单阶段问题，利用各阶段之间的关系，逐个求解，创立了解决这类过程优化问题的新方法——动态规划。1957年出版了他的名著《Dynamic Programming》，这是该领域的第一本著作。<br>    二、动态规划四大类<br>        1.线性动规：拦截导弹，合唱队形，挖地雷，建学校，剑客决斗等；<br>    2.区域动规:石子合并， 加分二叉树，统计单词个数，炮兵布阵等;<br>    3.树形动规:贪吃的九头龙，二分查找树，聚会的欢乐，数字三角形等；<br>    4.背包问题:01背包问题，完全背包问题，分组背包问题，二维背包，装箱问题，挤牛奶（同济ACM第1132题）等；<br>    三、动态规划实例</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/12/dynamic-progromming/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/12/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/12/hello-world/" class="archive-article-date">
-  	<time datetime="2020-02-12T10:11:11.077Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/12/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-my-first-blog-article" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/11/my-first-blog-article/">my first blog article</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/11/my-first-blog-article/" class="archive-article-date">
-  	<time datetime="2020-02-11T07:19:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>##第一章</p>
-<p>内容：BFS</p>
-<p>BFS即广度优先遍历，常用于树的层次遍历</p>
-<p>原理：拿到某一层的所有节点后，保存该层所有节点的子节点并删除该层所有节点，此时就拿到了下一层的所有节点。重复操作即可。<br>具体实现：（此处使用队列）<br>先将第一层的root节点入队，遍历root的子节点并依次入队，遍历完成后，将root节点出队，此时队中就存放了第二层的所有节点。再依次遍历队中所有节点，将子节点入队父节点出队.完成后队中就存放了第三层的所有节点。重复上述操作直到队中无数据，BFS遍历完成。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/11/my-first-blog-article/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+    </nav>
   
 
 
